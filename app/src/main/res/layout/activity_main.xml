@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Logo ImageView -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:contentDescription="App Logo"
+            android:src="@drawable/baseline_5k_plus_24"
+            android:scaleType="fitCenter" />
+
+        <!-- Full Name -->
+        <EditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Username -->
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Confirm Password -->
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Gender Spinner -->
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Phone Number -->
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Date of Birth -->
+        <EditText
+            android:id="@+id/dateBorn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date of Birth"
+            android:focusable="false"
+            android:clickable="true"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="16sp"
+            android:textColor="#FFF"
+            android:background="#1976D2"
+            android:padding="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#1976D2" />
+
+    </LinearLayout>
+</ScrollView>
