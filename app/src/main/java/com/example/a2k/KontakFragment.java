@@ -1,50 +1,56 @@
 package com.example.a2k;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.os.Bundle;  // Import library untuk berinteraksi dengan Bundle
+import android.view.LayoutInflater;  // Import LayoutInflater untuk menampilkan layout
+import android.view.View;  // Import kelas View untuk berinteraksi dengan elemen UI
+import android.view.ViewGroup;  // Import ViewGroup sebagai container dari layout
+import android.widget.ArrayAdapter;  // Import ArrayAdapter untuk mengelola data ke dalam ListView
+import android.widget.ListView;  // Import ListView untuk menampilkan daftar data
+import androidx.fragment.app.Fragment;  // Import kelas Fragment untuk membuat fragment
+import java.util.ArrayList;  // Import ArrayList untuk menyimpan data dinamis
 
-import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
-
+// Deklarasi kelas KontakFragment yang mewarisi Fragment
 public class KontakFragment extends Fragment {
 
+    // Deklarasi variabel ListView dan ArrayList untuk menampung data mahasiswa
     ListView listView;
     ArrayList<Mahasiswa> mahasiswaList;
 
+    // Konstruktor kosong untuk KontakFragment, diperlukan untuk fragment
     public KontakFragment() {
         // Required empty public constructor
     }
 
+    // Metode onCreateView yang akan dipanggil saat fragment ini dibuat
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate layout fragment_kontak dan kaitkan dengan View yang akan digunakan
         View view = inflater.inflate(R.layout.fragment_kontak, container, false);
 
-        // Inisialisasi ListView
+        // Inisialisasi ListView dengan ID listView dari layout XML
         listView = view.findViewById(R.id.listView);
 
-        // Inisialisasi ArrayList untuk mahasiswa
+        // Inisialisasi ArrayList untuk menyimpan data mahasiswa
         mahasiswaList = new ArrayList<>();
 
-        // Tambahkan data mahasiswa
+        // Panggil metode untuk menambahkan data mahasiswa ke ArrayList
         addMahasiswaData();
 
-        // Buat adapter untuk ListView
+        // Buat adapter yang menghubungkan data ArrayList ke ListView
         MahasiswaAdapter adapter = new MahasiswaAdapter(getContext(), mahasiswaList);
 
-        // Set adapter ke ListView
+        // Set adapter untuk ListView agar dapat menampilkan data mahasiswa
         listView.setAdapter(adapter);
 
+        // Kembalikan View yang sudah di-inflate untuk ditampilkan pada UI
         return view;
     }
 
+    // Metode untuk menambahkan data mahasiswa ke dalam ArrayList
     private void addMahasiswaData() {
+        // Menambahkan data mahasiswa berupa nama, email, dan nomor telepon
         mahasiswaList.add(new Mahasiswa("Mahasiswa 1", "mahasiswa1@example.com", "08123456789"));
         mahasiswaList.add(new Mahasiswa("Mahasiswa 2", "mahasiswa2@example.com", "08123456780"));
         mahasiswaList.add(new Mahasiswa("Mahasiswa 3", "mahasiswa3@example.com", "08123456781"));
