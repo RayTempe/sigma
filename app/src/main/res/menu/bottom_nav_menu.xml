@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="List Mahasiswa"
+        android:icon="@drawable/ic_list"
+        android:id="@+id/List"/>
+
+    <item
+        android:title="Kontak Mahasiswa"
+        android:icon="@drawable/ic_contact"
+        android:id="@+id/Kontak"/>
+
+    <item
+        android:title="Kosong"
+        android:icon="@drawable/ic_blank"
+        android:id="@+id/Kosong"/>
+
+</menu>

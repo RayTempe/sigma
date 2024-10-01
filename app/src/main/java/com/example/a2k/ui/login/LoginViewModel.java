@@ -12,58 +12,68 @@ import com.example.a2k.R;
 
 public class LoginViewModel extends ViewModel {
 
-    private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
-    private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
-    private LoginRepository loginRepository;
+    private final MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
+    private final MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
+    private final LoginRepository loginRepository;
 
-    LoginViewModel(LoginRepository loginRepository) {
+    // Constructor
+    public LoginViewModel(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
     }
 
-    LiveData<LoginFormState> getLoginFormState() {
+    // Getter for loginFormState
+    public LiveData<LoginFormState> getLoginFormState() {
         return loginFormState;
     }
 
-    LiveData<LoginResult> getLoginResult() {
+    // Getter for loginResult
+    public LiveData<LoginResult> getLoginResult() {
         return loginResult;
     }
 
+    // Method for logging in the user
     public void login(String username, String password) {
-        // can be launched in a separate asynchronous job
+        // Launch login logic in a separate asynchronous job (already done in repository)
         Result<LoggedInUser> result = loginRepository.login(username, password);
 
         if (result instanceof Result.Success) {
+            // If login is successful, pass the user data to loginResult
             LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
             loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
+            // If login fails, pass an error message
+            loginResult.setValue(new LoginResult(R.string.app_name));
         }
     }
 
+    // Method to check if the input data has changed and if it's valid
     public void loginDataChanged(String username, String password) {
         if (!isUserNameValid(username)) {
-            loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
+            loginFormState.setValue(new LoginFormState(R.string.app_name, null));
         } else if (!isPasswordValid(password)) {
-            loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
+            loginFormState.setValue(new LoginFormState(null, R.string.app_name));
         } else {
             loginFormState.setValue(new LoginFormState(true));
         }
     }
 
-    // A placeholder username validation check
+    // Method to validate the username
     private boolean isUserNameValid(String username) {
-        if (username == null) {
-            return false;
+        if (username == null || username.trim().isEmpty()) {
+            return false; // Username should not be null or empty
         }
         if (username.contains("@")) {
+            // If the username contains '@', validate it as an email address
             return Patterns.EMAIL_ADDRESS.matcher(username).matches();
         } else {
+            // If it's not an email, check that it's not empty
             return !username.trim().isEmpty();
         }
     }
 
-    // A placeholder password validation check
+    // Method to validate the password
     private boolean isPasswordValid(String password) {
+        // Password should be at least 6 characters long and not null
         return password != null && password.trim().length() > 5;
     }
 }

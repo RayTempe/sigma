@@ -13,7 +13,10 @@
         android:theme="@style/Theme._2k"
         tools:targetApi="31">
         <activity
-            android:name=".ListMahasiswa"
+            android:name=".FragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListMahasiswaActivity"
             android:exported="false" />
         <activity
             android:name=".SecondActivity"
@@ -22,19 +25,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SecondActivty"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".StudentAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".ListmhsActivity"
+            android:name=".MahasiswaAdapter"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

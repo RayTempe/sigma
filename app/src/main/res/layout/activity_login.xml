@@ -20,39 +20,24 @@
             android:contentDescription="App Logo"
             android:src="@drawable/baseline_5k_plus_24" />
 
-        <!-- Email -->
         <EditText
             android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your email"
-            android:inputType="textEmailAddress"
-            android:layout_marginBottom="15dp"
-            android:padding="10dp"
-            android:background="@android:drawable/editbox_background" />
+            android:hint="Email" />
 
-        <!-- Password -->
         <EditText
             android:id="@+id/passwordField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your password"
-            android:inputType="textPassword"
-            android:layout_marginBottom="20dp"
-            android:padding="10dp"
-            android:background="@android:drawable/editbox_background" />
+            android:hint="Password"
+            android:inputType="textPassword" />
 
-        <!-- Login Button -->
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:background="@android:color/holo_blue_light"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:padding="12dp"
-            android:layout_marginBottom="20dp" />
+            android:text="Login" />
 
     </LinearLayout>
 </ScrollView>

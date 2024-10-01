@@ -1,5 +1,6 @@
 package com.example.a2k;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button registerButton;
     Calendar calendar;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,24 +76,19 @@ public class MainActivity extends AppCompatActivity {
 
             // Validasi password
             if (password.equals(confirmPassword)) {
-                // Simpan data menggunakan SharedPreferences
-                SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("email", email);
-                editor.putString("password", password);
-                editor.apply();
-
                 // Tampilkan pesan sukses
                 Toast.makeText(MainActivity.this, "Registrasi berhasil!", Toast.LENGTH_SHORT).show();
 
-                // Pindah ke halaman login dan kirim email
+                // Pindah ke halaman login dan kirim email dan password
                 Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
                 loginIntent.putExtra("email", email);
+                loginIntent.putExtra("password", password); // Mengirim password
                 startActivity(loginIntent);
             } else {
                 // Tampilkan pesan error jika password tidak sama
                 Toast.makeText(MainActivity.this, "Password tidak cocok!", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }

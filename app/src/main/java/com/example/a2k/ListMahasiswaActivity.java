@@ -1,49 +1,34 @@
 package com.example.a2k;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 public class ListMahasiswaActivity extends AppCompatActivity {
 
-    ListView listView;
-    ArrayList<String> mahasiswaList;
+    private ListView listView;
+    private ArrayAdapter<CharSequence> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_mahasiswa);
 
-        listView = findViewById(R.id.listView);
-        mahasiswaList = new ArrayList<>();
+        listView = findViewById(R.id.List);
 
-        // Tambahkan 15 data mahasiswa
-        addMahasiswaData();
-
-        // Set adapter untuk ListView
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mahasiswaList);
+        // Menggunakan adapter untuk mengisi data dari resource array ke ListView
+        adapter = ArrayAdapter.createFromResource(this, R.array.nama_mhs, android.R.layout.simple_list_item_1);
         listView.setAdapter(adapter);
-    }
 
-    private void addMahasiswaData() {
-        mahasiswaList.add("Mahasiswa 1");
-        mahasiswaList.add("Mahasiswa 2");
-        mahasiswaList.add("Mahasiswa 3");
-        mahasiswaList.add("Mahasiswa 4");
-        mahasiswaList.add("Mahasiswa 5");
-        mahasiswaList.add("Mahasiswa 6");
-        mahasiswaList.add("Mahasiswa 7");
-        mahasiswaList.add("Mahasiswa 8");
-        mahasiswaList.add("Mahasiswa 9");
-        mahasiswaList.add("Mahasiswa 10");
-        mahasiswaList.add("Mahasiswa 11");
-        mahasiswaList.add("Mahasiswa 12");
-        mahasiswaList.add("Mahasiswa 13");
-        mahasiswaList.add("Mahasiswa 14");
-        mahasiswaList.add("Mahasiswa 15");
+        // Menambahkan event listener untuk meng-handle klik pada item di ListView
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedItem = parent.getItemAtPosition(position).toString();
+            Toast.makeText(ListMahasiswaActivity.this, "Anda memilih: " + selectedItem, Toast.LENGTH_SHORT).show();
+        });
     }
 }
