@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         builder.setNegativeButton("Tidak", (dialog, which) -> {
             // Hanya menutup dialog dan tetap di halaman login
             dialog.dismiss();
-            Toast.makeText(LoginActivity.this, "Silakan coba lagi.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Silakan coba lagi kawan.", Toast.LENGTH_SHORT).show();
         });
 
         AlertDialog dialog = builder.create();

@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             // Validasi password
             if (password.equals(confirmPassword)) {
                 // Tampilkan pesan sukses
-                Toast.makeText(MainActivity.this, "Registrasi berhasil!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Registrasi sukses!", Toast.LENGTH_SHORT).show();
 
                 // Pindah ke halaman login dan kirim email dan password
                 Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
